@@ -1,5 +1,6 @@
 package com.mingi.jwt.service;
 
+import java.time.LocalDateTime;
 import java.util.Collections;
 import java.util.Optional;
 
@@ -9,7 +10,9 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.mingi.jwt.dto.UserDto;
 import com.mingi.jwt.entities.Authority;
+import com.mingi.jwt.entities.RefreshToken;
 import com.mingi.jwt.entities.User;
+import com.mingi.jwt.repository.RefreshTokenRepository;
 import com.mingi.jwt.repository.UserRepository;
 import com.mingi.jwt.util.SecurityUtil;
 
@@ -20,6 +23,8 @@ import lombok.RequiredArgsConstructor;
 public class UserService {
     private final UserRepository userRepository;
     private final PasswordEncoder passwordEncoder;
+    
+    private final RefreshTokenRepository refreshTokenRepository; // 추가
 
 
     @Transactional
@@ -45,6 +50,20 @@ public class UserService {
 
         return userRepository.save(user);
     }
+    
+    
+    
+    @Transactional // 추가
+    public void logout(String username) {
+        Optional<RefreshToken> refreshTokenOptional = refreshTokenRepository.findByUsername(username);
+        if (refreshTokenOptional.isPresent()) {
+            RefreshToken refreshToken = refreshTokenOptional.get();
+            refreshToken.setExpiryDate(LocalDateTime.now());
+            refreshTokenRepository.save(refreshToken);
+        }
+    }
+    
+    
 
     @Transactional(readOnly = true)
     public Optional<User> getUserWithAuthorities(String username) {

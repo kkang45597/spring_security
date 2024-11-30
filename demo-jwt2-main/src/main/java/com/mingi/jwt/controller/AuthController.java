@@ -54,12 +54,7 @@ public class AuthController {
         		HttpStatus.OK);
         
         return ret;
-    } 
-    // 이 코드는 url: /api/login에 POST 요청으로 JSON 값이 들어왔을때 적절한 JSON 값을 반환한다.
-    // @Valid는 
-    
-    
-    
+    }     
     
     // POSTMAN으로 테스트할때 Body에서 raw.JSON으로 refreshToken을 넣고, Authorization에서 Bearer Token으로 accessToken을 넣어야 한다.
     // 반환값으로 token을 받는다.

@@ -1,4 +1,4 @@
-package com.mingi.jwt.controller;
+ package com.mingi.jwt.controller;
 
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
@@ -40,6 +40,14 @@ public class UserController {
     ) {
         return ResponseEntity.ok(userService.signup(userDto));
     }
+    
+    
+    @PostMapping("/logout") // add
+    public ResponseEntity<Void> logout(@Valid @RequestBody UserDto userDto) {
+        userService.logout(userDto.getUsername());
+        return ResponseEntity.ok().build();
+    }
+    
 
     // POSTMAN으로 테스트할때 Authorization에서 Bearer Token으로 accessToken을 넣어야 한다.
     // 반환값으로 해당 유저의 정보를 JSON으로 받는다.

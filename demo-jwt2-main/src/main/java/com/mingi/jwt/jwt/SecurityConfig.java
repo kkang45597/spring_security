@@ -48,6 +48,8 @@ public class SecurityConfig {
     	http.authorizeHttpRequests(
     			c -> c.requestMatchers(new AntPathRequestMatcher("/api/login")).permitAll() // 로그인 api
     			
+    			.requestMatchers(new AntPathRequestMatcher("/api/logout")).authenticated() // 추가
+    			
 //    			.requestMatchers(new AntPathRequestMatcher("/api/refresh-token")).permitAll() // 수정됨
     			// permitAll()는 인증 없이도 해당 엔드포인트에 접근할 수 있기에, 이 엔드포인트에 접근할 때 Authentication 객체가 생성되지 않을 수 있다.
     			.requestMatchers(new AntPathRequestMatcher("/api/refresh-token")).authenticated()
