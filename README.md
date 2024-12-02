@@ -1,4 +1,5 @@
 # Spring Security in Action
+교재에서는 스프링 프레임워크 5을 사용했지만, 실제로 사용한 버전은 <b>스프링 프레임워크 6</b>입니다. 또한 스프링 부트 2에서 <b>스프링 부트 3</b>로 변경하였습니다.</br>
 ## 실습한 예들
 [<B>[기술블로그: TobySpringFrame]</B>](https://blank001.tistory.com/category/Spring%20Security%20in%20Action)
 [<B>[기술블로그: Spring Boot/Spring Security]</B>](https://blank001.tistory.com/category/Spring%20Boot/Spring%20Security)
