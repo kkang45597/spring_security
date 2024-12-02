@@ -11,6 +11,9 @@
 ### 3장, 사용자 관리
 - ch3_1: 스프링 스큐리티 인증 구현, 사용자 기술하기, 사용자 관리 방법 지정
 
+### 4장, 암호 처리
+- demo-jwt2-main: PasswordEncoder 계약의 이해, 스프링 시큐리티 암호화 모듈에 관한 추가 정보
+
 ### 5장, 인증 구현
 - ch5_1: AuthenticationProvider의 이해, SecurityContext 이용, HTTP Basic 인증과 인증기반 로그인 인증 이해하기
 
